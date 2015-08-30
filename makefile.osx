@@ -4,6 +4,7 @@ LDFLAGS=-framework OpenGL -framework QuartzCore -framework Cocoa -framework IOKi
 OUTPUT_DIR=bin
 SOURCES=common/platform.cpp source/main.cpp \
 $(wildcard source/**/*.cpp) \
+$(wildcard source/game/**/*.cpp) \
 
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=main
