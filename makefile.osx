@@ -1,0 +1,25 @@
+CC=g++
+CFLAGS=-c -std=c++0x -DGLM_FORCE_RADIANS -Icommon -Icommon/thirdparty/glew/include -Icommon/thirdparty/glfw/include -Icommon/thirdparty/glm -Icommon/thirdparty/stb_image -I/usr/local/include
+LDFLAGS=-framework OpenGL -framework QuartzCore -framework Cocoa -framework IOKit -lglew -lglfw3 -Llib
+OUTPUT_DIR=bin
+SOURCES=common/platform.cpp source/main.cpp \
+$(wildcard source/**/*.cpp) \
+
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=main
+
+all: mkdirs $(SOURCES) $(EXECUTABLE)
+
+mkdirs:
+	mkdir -p bin
+	
+clean: 
+	rm -fr bin
+	find ./ -name "*.o" -delete
+
+$(EXECUTABLE): $(OBJECTS) 
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $(OUTPUT_DIR)/$@
+
+%.o: %.cpp 
+	$(CC) $(CFLAGS) $< -o $@
+
