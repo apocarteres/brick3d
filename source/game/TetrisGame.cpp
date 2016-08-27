@@ -1,5 +1,6 @@
 #include <iostream>
 #include <assert.h>
+#include <algorithm>
 
 #include "TetrisGame.h"
 #include "figures/Figure1.h"
