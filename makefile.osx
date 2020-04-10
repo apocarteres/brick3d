@@ -1,4 +1,7 @@
-CC=g++
+#Use G++ only to compiler. CLANG is not supported by some of thrift parties. Make sure your "G++" is real G++, not an alias to CLANG
+
+
+CC=/usr/local/Cellar/gcc@8/8.4.0/bin/g++-8
 CFLAGS=-c -std=c++0x -DGLM_FORCE_RADIANS -Icommon -Icommon/thirdparty/glew/include -Icommon/thirdparty/glfw/include -Icommon/thirdparty/glm -Icommon/thirdparty/stb_image -I/usr/local/include
 LDFLAGS=-framework OpenGL -framework QuartzCore -framework Cocoa -framework IOKit -lglew -lglfw3 -Llib
 OUTPUT_DIR=bin

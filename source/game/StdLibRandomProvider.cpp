@@ -4,8 +4,7 @@ StdLibRandomProvider::StdLibRandomProvider() {
     rnd_e.seed(std::time(0));
 }
 
-StdLibRandomProvider::~StdLibRandomProvider() {
-}
+StdLibRandomProvider::~StdLibRandomProvider() = default;
 
 int StdLibRandomProvider::next_int(int high_limit) {
     std::uniform_int_distribution<int> d(1, high_limit - 1);
